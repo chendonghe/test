@@ -1,0 +1,61 @@
+{
+    "name": "lrc-maker",
+    "version": "5.2.9",
+    "description": "歌词滚动姬｜可能是你所能见到的最好用的歌词制作工具",
+    "repository": "https://github.com/magic-akari/lrc-maker.git",
+    "author": "阿卡琳 <hufan.akarin@Gmail.com>",
+    "license": "MIT",
+    "keywords": [
+        "lrc",
+        "lrc maker",
+        "lyric",
+        "lyric maker"
+    ],
+    "bugs": "https://github.com/magic-akari/lrc-maker/issues",
+    "homepage": "https://github.com/magic-akari/lrc-maker#readme",
+    "files": [
+        "src",
+        "build"
+    ],
+    "scripts": {
+        "clean": "make clean",
+        "start": "make dev",
+        "build": "make build",
+        "prettier": "prettier --write \"{.,src/**,worker,scripts}/*.{ts,tsx,js,es6,css,json,md}\"",
+        "listdiff": "prettier -l \"{.,src/**,worker,scripts}/*.{ts,tsx,js,es6,css,json,md}\"",
+        "lint": "eslint \"{src,worker,scripts}/**/*.{ts,tsx,es6}\""
+    },
+    "dependencies": {
+        "@lrc-maker/lrc-parser": "^0.1.8",
+        "react": "^16.13.1",
+        "react-dom": "^16.13.1"
+    },
+    "devDependencies": {
+        "@types/glob": "^7.1.1",
+        "@types/node": "^13.13.4",
+        "@types/prettier": "^2.0.0",
+        "@types/react": "^16.9.34",
+        "@types/react-dom": "^16.9.7",
+        "@typescript-eslint/eslint-plugin": "^2.30.0",
+        "@typescript-eslint/parser": "^2.30.0",
+        "autoprefixer": "^9.7.6",
+        "core-js": "^3.6.5",
+        "cssnano": "^4.1.10",
+        "eslint": "^6.8.0",
+        "eslint-config-prettier": "^6.11.0",
+        "eslint-plugin-react": "^7.19.0",
+        "eslint-plugin-react-hooks": "^4.0.0",
+        "glob": "^7.1.6",
+        "postcss": "^7.0.27",
+        "postcss-cli": "^7.1.1",
+        "postcss-custom-properties": "^9.1.1",
+        "postcss-import": "^12.0.1",
+        "prettier": "^2.0.5",
+        "source-map-loader": "^0.2.4",
+        "toggle-switch-css": "^1.0.1",
+        "ts-node": "^8.9.1",
+        "typescript": "^3.8.3",
+        "webpack": "^4.43.0",
+        "webpack-cli": "^3.3.11"
+    }
+}
