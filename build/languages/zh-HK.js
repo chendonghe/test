@@ -1,8 +1,8 @@
 export const language = {
     languageName: "繁體中文(香港)",
     app: {
-        name: "翻滾吧歌詞哈哈",
-        fullname: "翻滾吧歌詞哈哈",
+        name: "翻滾吧歌詞",
+        fullname: "翻滾吧歌詞",
     },
     header: {
         home: "主頁",
