@@ -1,0 +1,226 @@
+@font-face {
+    font-family: "Akari Number";
+    src: local("Helvetica Neue"), local("Helvetica");
+    unicode-range: U+30-39;
+}
+
+@font-face {
+    font-family: "Akari Fallback UI";
+    src: local("Segoe UI"), local("Roboto"), local("Oxygen"), local("Ubuntu"), local("Cantarell"), local("Open Sans"),
+        local("Helvetica Neue"), local("Helvetica");
+}
+
+html {
+    color: var(--font-color);
+    font-family: "Akari Number", -apple-system, BlinkMacSystemFont, "Akari Fallback Text", system-ui, sans-serif,
+        "Apple Color Emoji", "Segoe UI Emoji";
+    background-color: var(--background-color);
+    font-feature-settings: "kern" 1;
+    font-kerning: normal;
+    caret-color: var(--theme-color);
+}
+
+[lang]:lang(zh) {
+    font-family: "Akari Number", -apple-system, BlinkMacSystemFont, "Akari Fallback UI", system-ui, "PingFang SC",
+        "Microsoft YaHei UI", "Microsoft YaHei", "Source Han Sans SC", "Noto Sans CJK SC", "WenQuanYi Micro Hei",
+        sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+}
+
+[lang]:lang(zh-HK) {
+    font-family: "Akari Number", -apple-system, BlinkMacSystemFont, "Akari Fallback UI", system-ui, "PingFang HK",
+        "Microsoft JhengHei UI", "Microsoft JhengHei", "Source Han Sans HK", "Noto Sans CJK TC", sans-serif,
+        "Apple Color Emoji", "Segoe UI Emoji";
+}
+
+[lang]:lang(zh-TW) {
+    font-family: "Akari Number", -apple-system, BlinkMacSystemFont, "Akari Fallback UI", system-ui, "PingFang TC",
+        "Microsoft JhengHei UI", "Microsoft JhengHei", "Source Han Sans TW", "Noto Sans CJK TC", sans-serif,
+        "Apple Color Emoji", "Segoe UI Emoji";
+}
+
+[lang]:lang(ja) {
+    font-family: "Akari Number", -apple-system, BlinkMacSystemFont, "Akari Fallback UI", system-ui,
+        "Hiragino Kaku Gothic Pro", "Yu Gothic UI", "Yu Gothic", "Meiryo UI", "Meiryo", "Source Han Sans JP",
+        "Noto Sans CJK JP", sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+}
+
+html,
+body {
+    overscroll-behavior-y: contain;
+}
+
+select,
+input,
+textarea {
+    color: inherit;
+}
+
+svg {
+    fill: currentColor;
+}
+
+::selection {
+    color: var(--theme-contrast-color);
+    background-color: var(--theme-color);
+}
+
+:focus {
+    outline: none;
+}
+
+a {
+    color: currentColor;
+    text-decoration: none;
+}
+
+a,
+button,
+[type="submit"] {
+    padding: 0 8px;
+    background: 0;
+    border: 0;
+    cursor: default;
+    appearance: none;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+time {
+    letter-spacing: 0.5px;
+}
+
+@media (max-width: 768px) {
+    time {
+        letter-spacing: 0;
+    }
+}
+
+.link {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.link:hover {
+    text-decoration-color: var(--theme-color);
+}
+
+.link:hover::after {
+    position: absolute;
+    margin-left: 4px;
+    content: "\1F517";
+}
+
+.button {
+    padding: 8px;
+    color: var(--black);
+    background-color: white;
+    border-radius: var(--border-radius);
+    opacity: 0.8;
+}
+
+.button:hover {
+    opacity: 1;
+}
+
+.glow {
+    transition: text-shadow var(--transition-duration) ease;
+}
+
+.glow:hover {
+    text-shadow: 0 0 4px currentColor;
+}
+
+.glow > svg {
+    transition: filter var(--transition-duration) ease;
+}
+
+.glow:hover > svg {
+    filter: var(--drop-shadow);
+}
+
+.ripple {
+    position: relative;
+    overflow: hidden;
+    transform: translate3d(0, 0, 0);
+}
+
+.ripple::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(circle, #000 10%, transparent 10%);
+    background-repeat: no-repeat;
+    background-position: 50%;
+    transform: scale3d(10, 10, 1);
+    opacity: 0;
+    transition: transform 0.5s, opacity 1s;
+    content: "";
+    pointer-events: none;
+}
+
+.ripple:active::after {
+    transform: scale3d(0, 0, 1);
+    opacity: 0.2;
+    transition: 0s;
+}
+
+.select-all {
+    user-select: all;
+}
+
+.app-container {
+    min-height: 100vh;
+}
+
+.page-loading::before {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: var(--background-color);
+    opacity: 0.5;
+    content: "";
+}
+
+.akari-odango-loading {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 50vmin;
+    height: 50vmin;
+    margin: auto;
+    text-align: center;
+}
+
+.start-loading {
+    animation: akariLoading 2s linear infinite;
+}
+
+@keyframes akariLoading {
+    from {
+        transform: rotate(0deg) translateX(-2vmin) rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg) translateX(-2vmin) rotate(-360deg);
+    }
+}
+
+.akari-not-found {
+    flex: 1 1 auto;
+    align-self: flex-end;
+    max-width: 100vw;
+    max-height: 80vh;
+    opacity: 0.2;
+    filter: var(--drop-shadow);
+}
